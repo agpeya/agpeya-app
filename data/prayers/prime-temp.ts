@@ -1,0 +1,5 @@
+      {
+        id: "prime-41-slotgebed",
+        title: "Slotgebed na ieder uur",
+        content: "Ontferm U over ons, o God, ontferm U over ons, U die op alle tijden en op alle uren in de hemel en op aarde wordt aanbeden en verheerlijkt. Christus, onze goede God, lankmoedig en vol ontferming, grootmoedig in medeleven, U houdt van de rechtvaardigen en ontfermt zich over de zondaars, van wie ik de eerste ben.\nU wilt niet de dood van de zondaar, maar dat hij zich bekeert en leeft. U roept allen tot verlossing, door de belofte van het goede dat komen zal.\nO Heer, neem onze gebeden aan in deze en alle tijden. Effen ons levenspad en leid ons zodat wij Uw geboden onderhouden. Heilig onze geesten, reinig onze lichamen, leid onze gedachten, zuiver onze bedoelingen, genees onze ziekten, en vergeef onze zonden. Bewaar ons voor alle verdriet en alle hartzeer.\nOmgeef ons met Uw heilige engelen zodat wij, geleid en bewaard door hun heerschare, de eenheid van het geloof en de kennis van Uw ontastbare en onbegrensde heerlijkheid bereiken, want U bent gezegend tot in eeuwigheid. Amen."
+      }

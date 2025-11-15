@@ -1,0 +1,55 @@
+{
+  "name": "Agpeya – Koptisch Gebedenboek",
+  "short_name": "Agpeya",
+  "description": "Het Koptisch-Orthodoxe gebedenboek met gebeden voor de zeven canonieke uren.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "background_color": "#fffbeb",
+  "theme_color": "#92400e",
+  "lang": "nl-NL",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+
+  "categories": [
+    "lifestyle",
+    "books",
+    "reference"
+  ],
+
+  "screenshots": [],
+  "related_applications": [],
+
+  "shortcuts": [
+    {
+      "name": "Morgengebed",
+      "short_name": "Morgen",
+      "description": "Begin de dag met het Morgengebed.",
+      "url": "/?hour=prime",
+      "icons": []
+    },
+    {
+      "name": "Avondgebed",
+      "short_name": "Avond",
+      "description": "Sluit de dag af met het Avondgebed.",
+      "url": "/?hour=vespers",
+      "icons": []
+    }
+  ]
+}

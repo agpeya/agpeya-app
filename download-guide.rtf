@@ -1,0 +1,437 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 AppleColorEmoji;\f2\fnil\fcharset0 AppleSymbols;
+\f3\fnil\fcharset0 LucidaGrande;\f4\fnil\fcharset134 PingFangSC-Regular;\f5\fnil\fcharset77 ZapfDingbatsITC;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # 
+\f1 \uc0\u55357 \u56549 
+\f0  Agpeya App - Download & Setup Guide\
+\
+## Download Instructies\
+\
+### Optie A: Export vanuit Figma Make (Makkelijkst)\
+\
+1. Klik op het **menu** (
+\f2 \uc0\u9776 
+\f0 ) in Figma Make\
+2. Kies **"Export"** of **"Download"**\
+3. Download de .zip file\
+4. Unzip naar een folder: `agpeya-app`\
+5. Klaar! Ga naar "Setup op je Computer" hieronder\
+\
+---\
+\
+### Optie B: Handmatig Downloaden\
+\
+Als er geen export optie is, kopieer deze bestanden handmatig:\
+\
+**Belangrijkste bestanden:**\
+- `index.html`\
+- `App.tsx`\
+- Hele `components/` folder\
+- Hele `data/` folder\
+- Hele `styles/` folder\
+- Hele `public/` folder\
+- `package.json` (zie hieronder)\
+- `tsconfig.json` (zie hieronder)\
+- `vite.config.ts` (zie hieronder)\
+\
+---\
+\
+## Setup op je Computer\
+\
+### Vereisten\
+\
+Installeer eerst:\
+- **Node.js**: Download van [nodejs.org](https://nodejs.org) (LTS versie)\
+- **Code Editor**: [VS Code](https://code.visualstudio.com) (aanbevolen)\
+\
+### Stap 1: Maak benodigde config bestanden\
+\
+Als deze bestanden ontbreken, maak ze aan:\
+\
+#### `package.json`\
+\
+```json\
+\{\
+  "name": "agpeya-app",\
+  "version": "1.0.0",\
+  "description": "Koptisch-Orthodox Gebedenboek - Agpeya",\
+  "type": "module",\
+  "scripts": \{\
+    "dev": "vite",\
+    "build": "tsc && vite build",\
+    "preview": "vite preview"\
+  \},\
+  "dependencies": \{\
+    "react": "^18.3.1",\
+    "react-dom": "^18.3.1",\
+    "lucide-react": "latest",\
+    "recharts": "latest",\
+    "sonner": "^2.0.3",\
+    "qrcode.react": "latest",\
+    "html2canvas": "latest"\
+  \},\
+  "devDependencies": \{\
+    "@types/react": "^18.3.1",\
+    "@types/react-dom": "^18.3.0",\
+    "@vitejs/plugin-react": "^4.3.0",\
+    "typescript": "^5.4.5",\
+    "vite": "^5.2.11",\
+    "tailwindcss": "^4.0.0"\
+  \}\
+\}\
+```\
+\
+#### `vite.config.ts`\
+\
+```ts\
+import \{ defineConfig \} from 'vite'\
+import react from '@vitejs/plugin-react'\
+\
+export default defineConfig(\{\
+  plugins: [react()],\
+  server: \{\
+    port: 5173\
+  \},\
+  build: \{\
+    outDir: 'dist',\
+    assetsDir: 'assets',\
+    sourcemap: false\
+  \}\
+\})\
+```\
+\
+#### `tsconfig.json`\
+\
+```json\
+\{\
+  "compilerOptions": \{\
+    "target": "ES2020",\
+    "useDefineForClassFields": true,\
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],\
+    "module": "ESNext",\
+    "skipLibCheck": true,\
+    "moduleResolution": "bundler",\
+    "allowImportingTsExtensions": true,\
+    "resolveJsonModule": true,\
+    "isolatedModules": true,\
+    "noEmit": true,\
+    "jsx": "react-jsx",\
+    "strict": true,\
+    "noUnusedLocals": true,\
+    "noUnusedParameters": true,\
+    "noFallthroughCasesInSwitch": true\
+  \},\
+  "include": ["**/*.ts", "**/*.tsx"],\
+  "references": [\{ "path": "./tsconfig.node.json" \}]\
+\}\
+```\
+\
+#### `tsconfig.node.json`\
+\
+```json\
+\{\
+  "compilerOptions": \{\
+    "composite": true,\
+    "skipLibCheck": true,\
+    "module": "ESNext",\
+    "moduleResolution": "bundler",\
+    "allowSyntheticDefaultImports": true\
+  \},\
+  "include": ["vite.config.ts"]\
+\}\
+```\
+\
+### Stap 2: Installeer Dependencies\
+\
+Open terminal/command prompt in de project folder:\
+\
+```bash\
+cd agpeya-app\
+npm install\
+```\
+\
+Dit downloadt alle benodigde packages (~5 minuten).\
+\
+### Stap 3: Start Development Server\
+\
+```bash\
+npm run dev\
+```\
+\
+Open browser naar: `http://localhost:5173`\
+\
+
+\f1 \uc0\u9989 
+\f0  **Je app draait nu lokaal!**\
+\
+---\
+\
+## Build voor Productie\
+\
+### Maak de "dist" folder\
+\
+```bash\
+npm run build\
+```\
+\
+Dit maakt een `dist/` folder met de geoptimaliseerde app.\
+\
+### Test de Build\
+\
+```bash\
+npm run preview\
+```\
+\
+Open browser naar: `http://localhost:4173`\
+\
+---\
+\
+## Deploy naar Netlify\
+\
+### Optie 1: Drag & Drop (Makkelijkst)\
+\
+1. Ga naar [netlify.com/drop](https://app.netlify.com/drop)\
+2. Maak gratis account\
+3. **Sleep de hele `dist` folder** naar de website\
+4. Klaar! Je krijgt een URL\
+\
+### Optie 2: Via GitHub (Automatisch)\
+\
+1. Maak GitHub repository\
+2. Push je code:\
+   ```bash\
+   git init\
+   git add .\
+   git commit -m "Initial commit - Agpeya App"\
+   git remote add origin [JOUW-REPO-URL]\
+   git push -u origin main\
+   ```\
+\
+3. Koppel aan Netlify:\
+   - Ga naar [netlify.com](https://netlify.com)\
+   - "Add new site" 
+\f3 \uc0\u8594 
+\f0  "Import from Git"\
+   - Selecteer je repository\
+   - Build command: `npm run build`\
+   - Publish directory: `dist`\
+   - Deploy!\
+\
+4. **Elke git push = automatisch deployment!** 
+\f1 \uc0\u55357 \u56960 
+\f0 \
+\
+---\
+\
+## Problemen Oplossen\
+\
+### "npm: command not found"\
+
+\f3 \uc0\u8594 
+\f0  Installeer Node.js van [nodejs.org](https://nodejs.org)\
+\
+### "Module not found" errors\
+
+\f3 \uc0\u8594 
+\f0  Run `npm install` opnieuw\
+\
+### Figma assets werken niet (figma:asset/...)\
+
+\f3 \uc0\u8594 
+\f0  Download de afbeeldingen handmatig:\
+   - In Figma Make: rechterklik op afbeelding 
+\f3 \uc0\u8594 
+\f0  "Save image as"\
+   - Plaats in `/public/` folder\
+   - Update imports in code naar `/icon.png` enz.\
+\
+### Build errors\
+
+\f3 \uc0\u8594 
+\f0  Check of alle bestanden aanwezig zijn\
+
+\f3 \uc0\u8594 
+\f0  Check of `tsconfig.json` en `vite.config.ts` bestaan\
+\
+### Port 5173 already in use\
+
+\f3 \uc0\u8594 
+\f0  Stop andere Vite processen of gebruik: `npm run dev -- --port 3000`\
+\
+---\
+\
+## Structuur Checklist\
+\
+Zorg dat je deze structuur hebt:\
+\
+```\
+agpeya-app/\
+
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  index.html                    
+\f1 \uc0\u9989 
+\f0 \
+
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  App.tsx                       
+\f1 \uc0\u9989 
+\f0 \
+
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  package.json                  
+\f1 \uc0\u9989 
+\f0 \
+
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  tsconfig.json                 
+\f1 \uc0\u9989 
+\f0 \
+
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  vite.config.ts               
+\f1 \uc0\u9989 
+\f0 \
+
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  components/                   
+\f1 \uc0\u9989 
+\f0 \
+\uc0\u9474    
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  HourCard.tsx\
+\uc0\u9474    
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  PrayerReader.tsx\
+\uc0\u9474    
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  CopticCalendar.tsx\
+\uc0\u9474    
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  InstallPrompt.tsx\
+\uc0\u9474    
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  PWATools.tsx\
+\uc0\u9474    \u9492 \u9472 \u9472  ui/                       
+\f1 \uc0\u9989 
+\f0 \
+\uc0\u9474        \u9492 \u9472 \u9472  [shadcn components]\
+
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  data/                         
+\f1 \uc0\u9989 
+\f0 \
+\uc0\u9474    
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  prayers-new.ts\
+\uc0\u9474    \u9492 \u9472 \u9472  prayers/\
+\uc0\u9474        
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  voorhangsel.ts\
+\uc0\u9474        
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  prime.ts\
+\uc0\u9474        
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  terce.ts\
+\uc0\u9474        
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  sext.ts\
+\uc0\u9474        
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  none.ts\
+\uc0\u9474        
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  vespers.ts\
+\uc0\u9474        
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  compline.ts\
+\uc0\u9474        \u9492 \u9472 \u9472  agpeya.ts\
+
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  styles/                       
+\f1 \uc0\u9989 
+\f0 \
+\uc0\u9474    \u9492 \u9472 \u9472  globals.css\
+\uc0\u9492 \u9472 \u9472  public/                       
+\f1 \uc0\u9989 
+\f0 \
+    
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  icon.svg\
+    
+\f4 \'a9\'c0
+\f0 \uc0\u9472 \u9472  manifest.json\
+    \uc0\u9492 \u9472 \u9472  service-worker.js\
+```\
+\
+---\
+\
+## Eigen Domein Koppelen (Optioneel)\
+\
+### Koop een domein\
+\
+- [TransIP](https://transip.nl) - Nederlandse provider (~\'8010/jaar voor .nl)\
+- [Namecheap](https://namecheap.com) - Internationaal\
+\
+### Koppel aan Netlify\
+\
+1. Netlify Dashboard 
+\f3 \uc0\u8594 
+\f0  Domain Settings\
+2. "Add custom domain" 
+\f3 \uc0\u8594 
+\f0  voer in: `agpeya.nl`\
+3. Volg de DNS instructies\
+4. Update DNS bij je provider:\
+   - A record 
+\f3 \uc0\u8594 
+\f0  `75.2.60.5`\
+   - Of CNAME 
+\f3 \uc0\u8594 
+\f0  `jouw-site.netlify.app`\
+5. Wacht 24u voor DNS propagatie\
+6. **SSL certificaat = automatisch actief!** 
+\f1 \uc0\u55357 \u56594 
+\f0 \
+\
+---\
+\
+## Updates Deployen\
+\
+### Via GitHub (automatisch):\
+```bash\
+git add .\
+git commit -m "Update gebeden"\
+git push\
+```\
+
+\f3 \uc0\u8594 
+\f0  Netlify deploy automatisch binnen 1 minuut!\
+\
+### Via Netlify Drop:\
+1. Run `npm run build`\
+2. Sleep nieuwe `dist` folder naar Netlify\
+3. Klaar!\
+\
+---\
+\
+## 
+\f1 \uc0\u55356 \u57225 
+\f0  Klaar!\
+\
+Je Agpeya app draait nu lokaal \'e9n is klaar voor deployment!\
+\
+**Hulp nodig?**\
+- Netlify docs: [docs.netlify.com](https://docs.netlify.com)\
+- Vite docs: [vitejs.dev](https://vitejs.dev)\
+\
+**
+\f5 \uc0\u10015 
+\f0  In de Naam van de Vader en de Zoon en de Heilige Geest, E\'e9n God, Amen.**\
+}
